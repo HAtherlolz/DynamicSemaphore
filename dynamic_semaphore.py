@@ -28,6 +28,7 @@ class DynamicSemaphore:
 
     @property
     def limit(self) -> int:
+
         current_time = time.monotonic()
         if current_time < self._start_from:
             return 1
@@ -46,6 +47,7 @@ class DynamicSemaphore:
     def release(self) -> NoReturn:
         self._value -= 1
 
+    @property
     def locked(self) -> bool:
         return self._value >= self.limit
 
