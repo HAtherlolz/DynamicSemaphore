@@ -138,7 +138,7 @@ if __name__ == "__main__":
     client = openai.AsyncOpenAI(api_key=api_key)
 
     loop = asyncio.get_event_loop()  # gets the event loop
-    loop.run_until_complete(process_names_with_api(client=client, model=api_version))
+    loop.run_until_complete(concurrent_process(client=client, model=api_version))
 
 ```
 
