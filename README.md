@@ -34,7 +34,7 @@ The `RateLimiter` class extends the functionality of `DynamicSemaphore` to inclu
 
 ```python
 import asyncio
-from dynamic_semaphore import RateLimiter
+from rate_limiter import RateLimiter
 
 async def main():
     async with RateLimiter() as limiter:
