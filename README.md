@@ -100,9 +100,9 @@ async def openai_call(
 
 ```
 
-- `process_names_with_api`: This function creates multiple tasks to process names with the API using a task group for concurrent execution.
+- `concurrent_process`: This function creates multiple tasks to process request with the API using a task group for concurrent execution.
 ```python
-async def process_names_with_api(client: openai.AsyncOpenAI, model: str) -> NoReturn:
+async def concurrent_process(client: openai.AsyncOpenAI, model: str) -> NoReturn:
     rate_limiter = RateLimiter()
 
     async with asyncio.TaskGroup() as tg:

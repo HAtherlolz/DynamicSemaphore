@@ -46,7 +46,7 @@ async def openai_call(
             await asyncio.sleep(retry_after)
 
 
-async def process_names_with_api(client: openai.AsyncOpenAI, model: str) -> NoReturn:
+async def concurrent_process(client: openai.AsyncOpenAI, model: str) -> NoReturn:
     rate_limiter = RateLimiter()
 
     async with asyncio.TaskGroup() as tg:
@@ -76,5 +76,5 @@ if __name__ == "__main__":
     client = openai.AsyncOpenAI(api_key=api_key)
 
     loop = asyncio.get_event_loop()  # gets the event loop
-    loop.run_until_complete(process_names_with_api(client=client, model=api_version))
+    loop.run_until_complete(concurrent_process(client=client, model=api_version))
 
